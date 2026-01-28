@@ -1,36 +1,64 @@
-1)select "name" , signup_date 
-from users 
-where name = 'Alice'
-2)select *
-from users 
-where signup_date > '2024-01-05'
-3)select *
-from users 
-where signup_date >= '2024-01-01'
-and signup_date <= '2024-01-07'
-4)select *
-from users 
-where name = 'Alice'
-or name = 'Bob'
-5) select *
-from users 
-where name in ('Alice', 'Bob')
-6) select *
-from users 
-where name = 'Alice'
-or signup_date > '2024-01-05'
-7) select *
-from users 
-where name in ('Alice', 'Bob')
-and signup_date > '2024-01-01'
-8) select *
-from users u 
-where name = 'Alice'
-or (name = 'Bob' and signup_date > '2024-01-05')
-9) select *
-from users 
-where name = 'Bob'
-10) select *
-from users 
-where signup_date > '2024-01-01'
-11) 
+
+---
+
+# 📄 `sql/stage-1_day-02.sql`
+
+```sql
+-- Stage 1 — Day 02
+-- Topic: WHERE — filtering data
+-- Related report: ../reports/stage-1_day-02.md
+
+-- Task 1: Filter by name
+SELECT name, signup_date
+FROM users
+WHERE name = 'Alice';
+
+-- Task 2: Filter by date
+SELECT *
+FROM users
+WHERE signup_date > '2024-01-05';
+
+-- Task 3: Filter by date range (AND)
+SELECT *
+FROM users
+WHERE signup_date >= '2024-01-01'
+  AND signup_date <= '2024-01-07';
+
+-- Task 4: OR condition
+SELECT *
+FROM users
+WHERE name = 'Alice'
+   OR name = 'Bob';
+
+-- Task 5: Same logic using IN
+SELECT *
+FROM users
+WHERE name IN ('Alice', 'Bob');
+
+-- Task 6: OR with different columns
+SELECT *
+FROM users
+WHERE name = 'Alice'
+   OR signup_date > '2024-01-05';
+
+-- Task 7: AND + IN
+SELECT *
+FROM users
+WHERE name IN ('Alice', 'Bob')
+  AND signup_date > '2024-01-01';
+
+-- Task 8: Priority with parentheses
+SELECT *
+FROM users
+WHERE name = 'Alice'
+   OR (name = 'Bob' AND signup_date > '2024-01-05');
+
+-- Task 9: Simple equality filter
+SELECT *
+FROM users
+WHERE name = 'Bob';
+
+-- Task 10: Date filter
+SELECT *
+FROM users
+WHERE signup_date > '2024-01-01';
